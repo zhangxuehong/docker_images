@@ -62,6 +62,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update \
 		zlib1g-dev \
 		${RESTY_ADD_PACKAGE_BUILDDEPS} \
 		${RESTY_ADD_PACKAGE_RUNDEPS} \
+	&& rm -rf /var/lib/apt/lists/*; \
 	&& cd /tmp \
 	&& if [ -n "${RESTY_EVAL_PRE_CONFIGURE}" ]; then eval $(echo ${RESTY_EVAL_PRE_CONFIGURE}); fi \
 	&& curl -fSL https://openresty.org/download/openresty-${RESTY_VERSION}.tar.gz -o openresty-${RESTY_VERSION}.tar.gz \

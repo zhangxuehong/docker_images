@@ -62,6 +62,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update \
 		libssl-dev \
 		gettext-base \
 		zlib1g-dev \
+		unzip \
+                wget \
 		${RESTY_ADD_PACKAGE_BUILDDEPS} \
 		${RESTY_ADD_PACKAGE_RUNDEPS} \
 	&& rm -rf /var/lib/apt/lists/* \

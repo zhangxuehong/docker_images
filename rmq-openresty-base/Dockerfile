@@ -15,7 +15,11 @@ ARG RESTY_VERSION="1.21.4.1"
 ARG RESTY_LUAROCKS_VERSION="3.9.0"
 ARG RESTY_J="1"
 ARG RESTY_CONFIG_OPTIONS="\
+    --with-compat \
     --with-file-aio \
+    --with-ipv6 \
+    --with-md5-asm \
+    --with-sha1-asm \
     --with-stream \
     --with-threads \
     "
@@ -54,6 +58,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update \
 		curl \
 		libpcre3 \
 		libpcre3-dev \
+		openssl \
+		libssl-dev \
 		gettext-base \
 		zlib1g-dev \
 		${RESTY_ADD_PACKAGE_BUILDDEPS} \
